@@ -50,7 +50,7 @@ namespace GerarGuia.RabbitMQReceiver.Receivers
                 var guia = JsonSerializer.Deserialize<Guia<Object>>(contentString);    
                 guiaService.Gerar(guia);
             };
-            _channel.BasicConsume(_config.Queue, false, consumer);
+            _channel.BasicConsume(_config.Queue, true, consumer);
             return Task.CompletedTask;
         }
     }
